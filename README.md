@@ -132,9 +132,6 @@ The ```penulis```, ```kategori```, and ```buku``` tabbles will be automattically
 
 Base url: ```http://127.0.0.1:5000```
 
-
-## REST API Endpoint Summary
-
 | No. | Module | Method | Endpoint | Description |
 |---:|---|:---:|---|---|
 | 1 | Home | `GET` | `/api` | Display the API welcome message |
