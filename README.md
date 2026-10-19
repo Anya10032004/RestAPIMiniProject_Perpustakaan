@@ -233,6 +233,29 @@ Base url: ```http://127.0.0.1:5000```
    }
    ```
 #### d. Update Author API based on ID
+- Method: `PUT`
+ - URL: `http://127.0.0.1:5000/api/penulis/2`
+ - Body(JSON):
+   ```
+   {
+    "nama_penulis": "haha",
+    "email": "haha@gmail.com"
+   }
+
+   ```
+ - Response Expected:
+   ```
+   {
+    "data": {
+        "create_at": "2026-10-15T14:28:42",
+        "email": "haha@gmail.com",
+        "id_penulis": 2,
+        "nama_penulis": "haha"
+    },
+    "message": "Data berhasil diupdate",
+    "status": 200
+}
+   ```
 #### e. Delete Author API based on ID
 ### 3. Categori API
 ### 4. Book API
