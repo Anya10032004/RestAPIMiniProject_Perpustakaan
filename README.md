@@ -188,7 +188,7 @@ Base url: ```http://127.0.0.1:5000```
    ```
 #### b. Read Author API
  - Method: `GET`
- - URL: `http://127.0.0.1:5000/create/penulis `
+ - URL: `http://127.0.0.1:5000/api/penulis `
  - Response Expected:
    ```
    {
@@ -217,6 +217,21 @@ Base url: ```http://127.0.0.1:5000```
    }
    ```
 #### c. Read Author API based on ID
+ - Method: `GET`
+ - URL: `http://127.0.0.1:5000/api/penulis/2`
+ - Response Expected:
+   ```
+   {
+    "data": {
+        "create_at": "2026-10-15T14:28:42",
+        "email": "kakaa@gmail.com",
+        "id_penulis": 2,
+        "nama_penulis": "mama"
+    },
+    "message": "Data berhasil diambil",
+    "status": 200
+   }
+   ```
 #### d. Update Author API based on ID
 #### e. Delete Author API based on ID
 ### 3. Categori API
