@@ -168,7 +168,23 @@ Base url: ```http://127.0.0.1:5000```
  - URL: `http://127.0.0.1:5000/create/penulis `
  - Body(JSON):
    ```
-   Welcome to the API
+   {
+    "nama_penulis": "Sefanya PN",
+    "email": "sefanyapn@gmail.com"
+   }
+   ```
+ - Response Expected:
+   ```
+   {
+    "data": {
+        "create_at": "2026-10-19T17:33:21",
+        "email": "sefanyapn@gmail.com",
+        "id_penulis": 4,
+        "nama_penulis": "Sefanya PN"
+    },
+    "message": "Data berhasil ditambahkan",
+    "status": 200
+   }
    ```
 #### b. Read Author API
 #### c. Read Author API based on ID
