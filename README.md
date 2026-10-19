@@ -214,7 +214,7 @@ Base url: ```http://127.0.0.1:5000```
     ],
     "message": "Data berhasil diambil",
     "status": 200
-}
+   }
    ```
 #### c. Read Author API based on ID
 #### d. Update Author API based on ID
