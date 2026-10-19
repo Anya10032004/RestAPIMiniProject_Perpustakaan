@@ -187,6 +187,35 @@ Base url: ```http://127.0.0.1:5000```
    }
    ```
 #### b. Read Author API
+ - Method: `GET`
+ - URL: `http://127.0.0.1:5000/create/penulis `
+ - Response Expected:
+   ```
+   {
+    "data": [
+        {
+            "create_at": "2026-10-15T14:28:42",
+            "email": "kakaa@gmail.com",
+            "id_penulis": 2,
+            "nama_penulis": "mama"
+        },
+        {
+            "create_at": "2026-10-15T14:28:58",
+            "email": "papakakaka@gmail.com",
+            "id_penulis": 3,
+            "nama_penulis": "alslda"
+        },
+        {
+            "create_at": "2026-10-19T17:33:21",
+            "email": "sefanyapn@gmail.com",
+            "id_penulis": 4,
+            "nama_penulis": "Sefanya PN"
+        }
+    ],
+    "message": "Data berhasil diambil",
+    "status": 200
+}
+   ```
 #### c. Read Author API based on ID
 #### d. Update Author API based on ID
 #### e. Delete Author API based on ID
