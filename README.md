@@ -128,7 +128,7 @@ The ```penulis```, ```kategori```, and ```buku``` tabbles will be automattically
     
 ## ⚙️ API testing
 
-## REST API Endpoint Summary
+### REST API Endpoint Summary
 
 Base url: ```http://127.0.0.1:5000```
 
