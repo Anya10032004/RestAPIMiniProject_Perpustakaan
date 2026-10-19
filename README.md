@@ -132,27 +132,31 @@ The ```penulis```, ```kategori```, and ```buku``` tabbles will be automattically
 
 Base url: ```http://127.0.0.1:5000```
 
+
+## REST API Endpoint Summary
+
 | No. | Module | Method | Endpoint | Description |
 |---:|---|:---:|---|---|
-| 1 | Home | `GET` | `/` | Welcome page |
-| 2 | Author | `POST` | `/create/penulis` | Add a new author |
-| 3 | Author | `GET` | `/read/penulis` | Retrieve all authors |
-| 4 | Author | `GET` | `/read/penulis/{id_penulis}` | Retrieve an author by ID |
-| 5 | Author | `PUT` | `/update/penulis/{id_penulis}` | Update author data by ID |
-| 6 | Author | `DELETE` | `/delete/penulis/{id_penulis}` | Delete an author by ID |
-| 7 | Category | `POST` | `/create/kategori` | Add a new category |
-| 8 | Category | `GET` | `/read/kategori` | Retrieve all categories |
-| 9 | Category | `GET` | `/read/kategori/{id_kategori}` | Retrieve a category by ID |
-| 10 | Category | `PUT` | `/update/kategori/{id_kategori}` | Update category data by ID |
-| 11 | Category | `DELETE` | `/delete/kategori/{id_kategori}` | Delete a category by ID |
-| 12 | Book | `POST` | `/create/buku` | Add a new book |
-| 13 | Book | `GET` | `/read/buku` | Retrieve all books |
-| 14 | Book | `GET` | `/read/buku/{id_buku}` | Retrieve a book by ID |
-| 15 | Book | `PUT` | `/update/buku/{id_buku}` | Update book data by ID |
-| 16 | Book | `DELETE` | `/delete/buku/{id_buku}` | Delete a book by ID |
-| 17 | Book | `GET` | `/read/buku?penulis_id={penulis_id}` | Filter books by author ID |
-| 18 | Book | `GET` | `/read/buku?kategori_id={kategori_id}` | Filter books by category ID |
-| 19 | Book | `GET` | `/read/buku?q={judul}` | Search books by title |
+| 1 | Home | `GET` | `/api` | Display the API welcome message |
+| 2 | Author | `POST` | `/api/penulis` | Create a new author |
+| 3 | Author | `GET` | `/api/penulis` | Retrieve all authors |
+| 4 | Author | `GET` | `/api/penulis/{id_penulis}` | Retrieve an author by ID |
+| 5 | Author | `PUT` | `/api/penulis/{id_penulis}` | Update an author's data by ID |
+| 6 | Author | `DELETE` | `/api/penulis/{id_penulis}` | Delete an author by ID |
+| 7 | Category | `POST` | `/api/kategori` | Create a new category |
+| 8 | Category | `GET` | `/api/kategori` | Retrieve all categories |
+| 9 | Category | `GET` | `/api/kategori/{id_kategori}` | Retrieve a category by ID |
+| 10 | Category | `PUT` | `/api/kategori/{id_kategori}` | Update a category by ID |
+| 11 | Category | `DELETE` | `/api/kategori/{id_kategori}` | Delete a category by ID |
+| 12 | Book | `POST` | `/api/buku` | Create a new book |
+| 13 | Book | `GET` | `/api/buku` | Retrieve all books |
+| 14 | Book | `GET` | `/api/buku/{id_buku}` | Retrieve a book by ID |
+| 15 | Book | `PUT` | `/api/buku/{id_buku}` | Update a book by ID |
+| 16 | Book | `DELETE` | `/api/buku/{id_buku}` | Delete a book by ID |
+| 17 | Book | `GET` | `/api/buku?penulis_id={penulis_id}` | Filter books by author ID |
+| 18 | Book | `GET` | `/api/buku?kategori_id={kategori_id}` | Filter books by category ID |
+| 19 | Book | `GET` | `/api/buku?q={judul}` | Search books by title |
+
 
 ### 1. Home API
 ### 2. Author API
