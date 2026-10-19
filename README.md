@@ -156,6 +156,17 @@ Base url: ```http://127.0.0.1:5000```
 
 
 ### 1. Home API
+ - Method: `GET`
+ - URL: `http://127.0.0.1:5000 `
+ - Response Expected (200 OK):
+   ```
+   Welcome to the API
+   ```
 ### 2. Author API
+#### a. Create Author API
+#### b. Read Author API
+#### c. Read Author API based on ID
+#### d. Update Author API based on ID
+#### e. Delete Author API based on ID
 ### 3. Categori API
 ### 4. Book API
