@@ -254,7 +254,7 @@ Base url: ```http://127.0.0.1:5000```
     },
     "message": "Data berhasil diupdate",
     "status": 200
-}
+   }
    ```
 #### e. Delete Author API based on ID
 ### 3. Categori API
