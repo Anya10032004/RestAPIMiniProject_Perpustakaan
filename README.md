@@ -153,3 +153,8 @@ Base url: ```http://127.0.0.1:5000```
 | 17 | Book | `GET` | `/read/buku?penulis_id={penulis_id}` | Filter books by author ID |
 | 18 | Book | `GET` | `/read/buku?kategori_id={kategori_id}` | Filter books by category ID |
 | 19 | Book | `GET` | `/read/buku?q={judul}` | Search books by title |
+
+### 1. Home API
+### 2. Author API
+### 3. Categori API
+### 4. Book API
