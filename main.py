@@ -120,7 +120,6 @@ def create_penulis():
         return jsonify({
             "status": "error",
             "message": "Input data missing",
-            "status": 400,
             "data": None
         }), 400
 
@@ -133,7 +132,6 @@ def create_penulis():
             return jsonify({
                     "status": "error",
                     "message": "ID already exist",
-                    "status": 409,
                     "data": None
                 }), 409
         # Create the object based on the class note that we created
@@ -145,7 +143,6 @@ def create_penulis():
                 return jsonify({
                     "status": "error",
                     "message": "Email already exist",
-                    "status": 409,
                     "data": None
                 }), 409
 
@@ -156,9 +153,8 @@ def create_penulis():
         return jsonify({
             "status": "success",
             "message": "Data berhasil ditambahkan",
-            "status": 200,
             "data": new_note.info_penulis()
-        }), 200
+        }), 201
 
 # Read all
 @app.route("/api/penulis", methods = ["GET"])
@@ -169,14 +165,12 @@ def read_penulis():
             return jsonify({
                 "status": "success",
                 "message": "Data berhasil diambil",
-                "status": 200,
                 "data": [note.info_penulis() for note in lists]
             }), 200 
         else:
             return jsonify({
                 "status": "error",
                 "message": "Data is empty",
-                "status": 200,
                 "data": None
             }), 200
     
@@ -191,13 +185,11 @@ def read_penulis_id(id_penulis):
                 return jsonify({
                     "status": "success",
                     "message": "Data berhasil diambil",
-                    "status": 200,
                     "data": note.info_penulis()
                 }), 200 
         return jsonify({
             "status": "error",
             "message": "Data tidak ditemukan",
-            "status": 404,
             "data": None
         }), 404 
     
@@ -214,12 +206,19 @@ def update_penulis(id_penulis):
         return jsonify({
             "status": "error",
             "message": "Input data missing",
-            "status": 400,
             "data": None
         }), 400
     
     with Session(engine) as session:
         lists = session.scalars(select(Penulis).order_by(Penulis.id_penulis)).all()
+        for e in lists:
+            if e.email == email and e.id_penulis != id_penulis:
+                return jsonify({
+                    "status": "error",
+                    "message": "Email already exist",
+                    "data": None
+                }), 409
+        
         for note in lists:
             if note.id_penulis == id_penulis:
                 if "nama_penulis" in new_input:
@@ -230,14 +229,12 @@ def update_penulis(id_penulis):
                 return jsonify({
                     "status": "success",
                     "message": "Data berhasil diupdate",
-                    "status": 200,
                     "data": note.info_penulis()
                 }), 200 
     
         return jsonify({
             "status": "error",
             "message": "Data tidak ditemukan",
-            "status": 404,
             "data": None
         }), 404 
     
@@ -246,21 +243,27 @@ def update_penulis(id_penulis):
 def delete_penulis(id_penulis):
     with Session(engine) as session:
         lists = session.scalars(select(Penulis).order_by(Penulis.id_penulis)).all()
+        lists_buku = session.scalars(select(Buku).order_by(Buku.id_buku)).all()
         for note in lists:
             if note.id_penulis == id_penulis:
+                # Check if there are any books associated with this author
+                if any(buku.id_penulis == id_penulis for buku in lists_buku):
+                    return jsonify({
+                        "status": "error",
+                        "message": "Cannot delete author with associated books",
+                        "data": None
+                    }), 409
                 session.delete(note)
                 session.commit()
                 return jsonify({
                     "status": "success",
                     "message": "Data berhasil dihapus",
-                    "status": 200,
                     "data": note.info_penulis()
                 }), 200 
     
         return jsonify({
             "status": "error",
             "message": "Data tidak ditemukan",
-            "status": 404,
             "data": None
         }), 404 
 
@@ -298,7 +301,6 @@ def create_kategori():
                 return jsonify({
                     "status": "error",
                     "message": "Nama already exist",
-                    "status": 409,
                     "data": None
                 }), 409
         new_note = Kategori(nama_kategori=nama, deskripsi=deskripsi)
@@ -308,9 +310,8 @@ def create_kategori():
         return jsonify({
             "status": "success",
             "message": "Data successfully added",
-            "status": 200,
             "data": new_note.info_kategori()
-        }), 200
+        }), 201
 
 # Read all
 @app.route("/api/kategori", methods = ["GET"])
@@ -351,12 +352,18 @@ def update_kategori(id_kategori):
         return jsonify({
             "status": "error",
             "message": "Input data missing",
-            "status": 400,
             "data": None
         }), 400
     
     with Session(engine) as session:
         lists = session.scalars(select(Kategori).order_by(Kategori.id_kategori)).all()
+        for n in lists:
+            if n.nama_kategori == name and n.id_kategori != id_kategori:
+                return jsonify({
+                    "status": "error",
+                    "message": "Nama already exist",
+                    "data": None
+                }), 409
         for note in lists:
             if note.id_kategori == id_kategori:
                 if "nama_kategori" in input_data:
@@ -381,8 +388,16 @@ def update_kategori(id_kategori):
 def delete_kategori(id_kategori):
     with Session(engine) as session:
         lists = session.scalars(select(Kategori).order_by(Kategori.id_kategori)).all()
+        lists_buku = session.scalars(select(Buku).order_by(Buku.id_buku)).all()
         for note in lists:
             if note.id_kategori == id_kategori:
+                # Check if there are any books associated with this category
+                if any(buku.id_kategori == id_kategori for buku in lists_buku):
+                    return jsonify({
+                        "status": "error",
+                        "message": "Cannot delete category with associated books",
+                        "data": None
+                    }), 409
                 session.delete(note)
                 session.commit()
                 return jsonify({
@@ -427,19 +442,25 @@ def create_buku():
                 }), 409
         # Create the object based on the class note that we created
         lists = session.scalars(select(Buku).order_by(Buku.id_buku)).all()
+        exist_email = False
+        exist_isbn = False 
         for a in lists:
             if a.judul == judul:
-                return jsonify({
-                    "status": "error",
-                    "message": "Judul sudah terdaftar",
-                    "data": None
-                }), 400
+                exist_email = True
             if a.isbn == isbn:
-                return jsonify({
-                    "status": "error",
-                    "message": "ISBN already exist",
-                    "data": None
-                }), 400
+                exist_isbn = True
+        if exist_email:
+            return jsonify({
+                "status": "error",
+                "message": f"Email already exist",
+                "data": None
+            }), 409
+        if exist_isbn:
+            return jsonify({
+                "status": "error",
+                "message": f"ISBN already exist",
+                "data": None
+            }), 409
         new_buku = Buku(judul=judul, id_penulis=id_penulis, id_kategori=id_kategori, isbn=isbn, harga=harga_buku, tahun_terbit = tahun_terbit)
         session.add(new_buku)
         session.commit()
@@ -458,26 +479,25 @@ def read_buku():
 
     with Session(engine) as session:
         lists = session.scalars(select(Buku).order_by(Buku.id_buku)).all()
-        if penulis_id is not None:
-            for note in lists:
-                if note.id_penulis == penulis_id:
-                    return jsonify({
-                        "status": "success",
-                        "message": "Data successfully retrived",
-                        "data": [note.info_buku() for note in lists if note.id_penulis == penulis_id]
-                    }), 200
+        if penulis_id is not None or type(penulis_id) == int:
+            filterr = [note.info_buku() for note in lists if note.id_penulis == penulis_id]
+            if filterr != []:
+                return jsonify({
+                    "status": "success",
+                    "message": "Data successfully retrived",
+                    "data": filterr}), 200
             return jsonify({
                 "status": "error",
                 "message": f"Data not found with the penulis id = {penulis_id}",
                  "data": None
             }), 404
-        elif kategori_id is not None:
-            for note in lists:
-                if note.id_kategori == kategori_id:
-                    return jsonify({
-                        "status": "success",
-                        "message": "Data successfully retrived",
-                        "data": [note.info_buku() for note in lists if note.id_kategori == kategori_id]
+        elif kategori_id is not None or type(kategori_id) == int:
+            filterr = [note.info_buku() for note in lists if note.id_kategori == kategori_id]
+            if filterr != []:
+                return jsonify({
+                    "status": "success",
+                    "message": "Data successfully retrived",
+                    "data": filterr
                     }), 200
             return jsonify({
                 "status": "error",
@@ -485,13 +505,13 @@ def read_buku():
                 "data": None
             }), 404
         elif judul is not None:
-            for note in lists:
-                if note.judul == judul:
-                    return jsonify({
-                        "status": "success",
-                        "message": "Data successfully retrived",
-                        "data": [note.info_buku() for note in lists if judul.strip().lower() in note.judul.strip().lower()  ]
-                    }), 200
+            filterr = [note.info_buku() for note in lists if judul.strip().lower() in note.judul.strip().lower().split(' ')]
+            if filterr != []:
+                return jsonify({
+                    "status": "success",
+                    "message": "Data successfully retrived",
+                    "data": filterr
+                }), 200
             return jsonify({
                 "status": "error",
                 "message": f"Data not found with the judul = {judul}",
@@ -506,7 +526,7 @@ def read_buku():
                 }), 200
     return jsonify({
             "status": "error",
-            "message": "Data not found",
+            "message": "Your input is empty or invalid",
             "data": None
         }), 404 
 # Read by id
@@ -548,6 +568,14 @@ def update_buku(id_buku):
         # Create the object based on the class note that we created
         lists = session.scalars(select(Buku).order_by(Buku.id_buku)).all()
         for a in lists:
+            if a.isbn == isbn:
+                return jsonify({
+                    "status": "error",
+                    "message": f"ISBN already exist",
+                    "data": None
+                    }), 409
+
+        for a in lists:
             if a.id_buku == id_buku:
                 if "judul" in input_data:
                     a.judul = input_data["judul"]
@@ -560,7 +588,7 @@ def update_buku(id_buku):
                 if "jumlah_buku" in input_data:
                     a.jumlah_buku = input_data["jumlah_buku"]
                 if "tahun_terbit" in input_data:
-                    a.tahun_tebrit = input_data["tahun_terbit"]
+                    a.tahun_terbit = input_data["tahun_terbit"]
                 session.commit()
                 return jsonify({
                     "status": "success",
