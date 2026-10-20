@@ -170,15 +170,13 @@ Base url: ```http://127.0.0.1:5000```
  - Method: `POST`
  - URL: `http://127.0.0.1:5000/create/penulis `
  - Body(JSON):
-   ```
-   {
+   ```{
     "nama_penulis": "Sefanya PN",
     "email": "sefanyapn@gmail.com"
    }
    ```
  - Response Expected:
-   ```
-   {
+   ```{
     "data": {
         "create_at": "2026-10-19T17:33:21",
         "email": "sefanyapn@gmail.com",
@@ -193,8 +191,7 @@ Base url: ```http://127.0.0.1:5000```
  - Method: `GET`
  - URL: `http://127.0.0.1:5000/api/penulis `
  - Response Expected:
-   ```
-   {
+   ```{
     "data": [
         {
             "create_at": "2026-10-15T14:28:42",
@@ -223,8 +220,7 @@ Base url: ```http://127.0.0.1:5000```
  - Method: `GET`
  - URL: `http://127.0.0.1:5000/api/penulis/2`
  - Response Expected:
-   ```
-   {
+   ```{
     "data": {
         "create_at": "2026-10-15T14:28:42",
         "email": "kakaa@gmail.com",
@@ -239,16 +235,14 @@ Base url: ```http://127.0.0.1:5000```
 - Method: `PUT`
  - URL: `http://127.0.0.1:5000/api/penulis/2`
  - Body(JSON):
-   ```
-   {
+   ```{
     "nama_penulis": "haha",
     "email": "haha@gmail.com"
    }
 
    ```
  - Response Expected:
-   ```
-   {
+   ```{
     "data": {
         "create_at": "2026-10-15T14:28:42",
         "email": "haha@gmail.com",
@@ -263,8 +257,7 @@ Base url: ```http://127.0.0.1:5000```
 - Method: `DELETE`
  - URL: `http://127.0.0.1:5000/api/penulis/4`
  - Response Expected:
-   ```
-   {
+    ```{
     "data": {
         "create_at": "2026-10-19T17:33:21",
         "email": "sefanyapn@gmail.com",
@@ -272,22 +265,21 @@ Base url: ```http://127.0.0.1:5000```
         "nama_penulis": "Sefanya PN"
     },
     "message": "Data berhasil dihapus",
-    "status": 200}
+    "status": 200
+   }
   ```
 ### 3. Categori API
 #### a. Create Categoty API
  - Method: `POST`
  - URL: `http://127.0.0.1:5000/create/penulis `
  - Body(JSON):
-   ```
-   {
+   ```{
     "nama_kategori": "romatic",
     "deskripsi": "Dunia milik kita berdua"
    }
    ```
  - Response Expected:
-   ```
-   {
+   ```{
     "data": {
         "deskripsi": "Dunia milik kita berdua",
         "id_kategori": 5,
@@ -295,14 +287,13 @@ Base url: ```http://127.0.0.1:5000```
     },
     "message": "Data successfully added",
     "status": 200
-  }
+   }
    ```
 #### b. Read Categoty API
 - Method: `GET`
  - URL: `http://127.0.0.1:5000/api/kategori `
  - Response Expected:
-   ```
-   {
+   ```{
     "data": [
         {
             "deskripsi": "Ya hantu hantu atau mistis",
@@ -327,15 +318,14 @@ Base url: ```http://127.0.0.1:5000```
     ],
     "message": "Data berhasil diambil",
     "status": "success"
-  }
+    }
     
    ```
 #### c. Read Category API based on ID
  - Method: `GET`
  - URL: `http://127.0.0.1:5000/api/kategori/1`
  - Response Expected:
-   ```
-   {
+   ```{
     "data": {
         "deskripsi": "Ya hantu hantu atau mistis",
         "id_kategori": 1,
@@ -343,22 +333,20 @@ Base url: ```http://127.0.0.1:5000```
     },
     "message": "Data berhasil diambil",
     "status": "success"
-  }
+    }
    ```
 #### d. Update Category API based on ID
 - Method: `PUT`
  - URL: `http://127.0.0.1:5000/api/kategori/1`
  - Body(JSON):
-   ```
-   {
+   ```{
     "nama_kategori": "Horror YEYYYY",
     "deskripsi": "Bisa Hantu bisa penjahat"
 
-}
+   }
    ```
  - Response Expected:
-```
-  {
+```{
     "data": {
         "deskripsi": "Bisa Hantu bisa penjahat",
         "id_kategori": 1,
@@ -374,8 +362,7 @@ Base url: ```http://127.0.0.1:5000```
  - URL: `http://127.0.0.1:5000/api/penulis/4`
  - Response Expected:
 
-```
-  {
+```{
     "data": {
         "deskripsi": "Dunia milik kita berdua",
         "id_kategori": 5,
@@ -386,6 +373,7 @@ Base url: ```http://127.0.0.1:5000```
    }
 ```
 
+  
 
 ### 4. Book API
 #### f. Filter based on the Author ID
