@@ -392,14 +392,18 @@ Base url: ```http://127.0.0.1:5000```
   
 
 ### 4. Book API
-#### a. Create Categoty API
+#### a. Create Book API
  - Method: `POST`
- - URL: `http://127.0.0.1:5000/create/penulis `
+ - URL: `http://127.0.0.1:5000/api/buku `
  - Body(JSON):
    ```
    {
-    "nama_kategori": "romatic",
-    "deskripsi": "Dunia milik kita berdua"
+    "judul": "Shimbaa",
+    "isbn": "12349494444912",
+    "tahun_terbit": 2001,
+    "harga": "2334000",
+    "id_penulis": 3,
+    "id_kategori": 4
    }
    ```
  - Response Expected:
@@ -407,59 +411,92 @@ Base url: ```http://127.0.0.1:5000```
    ```
    {
     "data": {
-        "deskripsi": "Dunia milik kita berdua",
-        "id_kategori": 5,
-        "nama_kategori": "romatic"
+        "harga": 2334000,
+        "id_buku": 18,
+        "id_kategori": 4,
+        "id_penulis": 3,
+        "isbn": "12349494444912",
+        "judul": "Shimbaa",
+        "tahun_terbit": 2001
     },
     "message": "Data successfully added",
-    "status": 200
+    "status": "success"
    }
    ```
-#### b. Read Categoty API
+#### b. Read Book API
 - Method: `GET`
- - URL: `http://127.0.0.1:5000/api/kategori `
+ - URL: `http://127.0.0.1:5000/api/buku`
  - Response Expected:
    ```
    {
     "data": [
         {
-            "deskripsi": "Ya hantu hantu atau mistis",
+            "harga": 10000,
+            "id_buku": 1,
             "id_kategori": 1,
-            "nama_kategori": "Horror Yassss"
+            "id_penulis": 2,
+            "isbn": "123",
+            "judul": "haha",
+            "tahun_terbit": 2020
         },
         {
-            "deskripsi": "Intinya saat dua orang saling membantu dalam pertumbuhan atau jadi TOLOLL",
+            "harga": 100000,
+            "id_buku": 3,
             "id_kategori": 2,
-            "nama_kategori": "romantis"
+            "id_penulis": 3,
+            "isbn": "12344",
+            "judul": "charles dickinson",
+            "tahun_terbit": 2010
         },
         {
-            "deskripsi": "fiksi tetapi berisfat ilmiah",
+            "harga": 1334000,
+            "id_buku": 4,
+            "id_kategori": 1,
+            "id_penulis": 3,
+            "isbn": "1234sd4",
+            "judul": "Harry Potter",
+            "tahun_terbit": 2000
+        },
+        {
+            "harga": 1334000,
+            "id_buku": 5,
+            "id_kategori": 1,
+            "id_penulis": 3,
+            "isbn": "123494949",
+            "judul": "Hobbit",
+            "tahun_terbit": 2000
+        },
+        {
+            "harga": 2334000,
+            "id_buku": 18,
             "id_kategori": 4,
-            "nama_kategori": "sci-fi"
-        },
-        {
-            "deskripsi": "Dunia milik kita berdua",
-            "id_kategori": 5,
-            "nama_kategori": "romatic"
+            "id_penulis": 3,
+            "isbn": "12349494444912",
+            "judul": "Shimbaa",
+            "tahun_terbit": 2001
         }
     ],
-    "message": "Data berhasil diambil",
+    "message": "Data successfully retrived",
     "status": "success"
-    }
+   }
     
    ```
-#### c. Read Category API based on ID
+#### c. Read Book API based on ID
  - Method: `GET`
- - URL: `http://127.0.0.1:5000/api/kategori/1`
+ - URL: `http://127.0.0.1:5000/api/buku/3`
  - Response Expected:
    ```
    {
     "data": {
-        "deskripsi": "Ya hantu hantu atau mistis",
-        "id_kategori": 1,
-        "nama_kategori": "Horror Yassss"
+        "harga": 100000,
+        "id_buku": 3,
+        "id_kategori": 2,
+        "id_penulis": 3,
+        "isbn": "12344",
+        "judul": "charles dickinson",
+        "tahun_terbit": 2010
     },
-    "message": "Data berhasil diambil",
+    "message": "Data successfully retrived",
     "status": "success"
     }
    ```
