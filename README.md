@@ -170,13 +170,15 @@ Base url: ```http://127.0.0.1:5000```
  - Method: `POST`
  - URL: `http://127.0.0.1:5000/create/penulis `
  - Body(JSON):
-   ```{
+   ```
+   {
     "nama_penulis": "Sefanya PN",
     "email": "sefanyapn@gmail.com"
    }
    ```
  - Response Expected:
-   ```{
+   ```
+   {
     "data": {
         "create_at": "2026-10-19T17:33:21",
         "email": "sefanyapn@gmail.com",
@@ -191,7 +193,8 @@ Base url: ```http://127.0.0.1:5000```
  - Method: `GET`
  - URL: `http://127.0.0.1:5000/api/penulis `
  - Response Expected:
-   ```{
+   ```
+   {
     "data": [
         {
             "create_at": "2026-10-15T14:28:42",
@@ -220,7 +223,8 @@ Base url: ```http://127.0.0.1:5000```
  - Method: `GET`
  - URL: `http://127.0.0.1:5000/api/penulis/2`
  - Response Expected:
-   ```{
+   ```
+   {
     "data": {
         "create_at": "2026-10-15T14:28:42",
         "email": "kakaa@gmail.com",
@@ -235,14 +239,16 @@ Base url: ```http://127.0.0.1:5000```
 - Method: `PUT`
  - URL: `http://127.0.0.1:5000/api/penulis/2`
  - Body(JSON):
-   ```{
+   ```
+   {
     "nama_penulis": "haha",
     "email": "haha@gmail.com"
    }
 
    ```
  - Response Expected:
-   ```{
+   ```
+   {
     "data": {
         "create_at": "2026-10-15T14:28:42",
         "email": "haha@gmail.com",
