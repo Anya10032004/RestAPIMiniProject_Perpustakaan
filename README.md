@@ -274,7 +274,7 @@ Base url: ```http://127.0.0.1:5000```
     "message": "Data berhasil dihapus",
     "status": 200
   }
-   ```
+  ```
 ### 3. Categori API
 #### a. Create Categoty API
  - Method: `POST`
@@ -356,11 +356,10 @@ Base url: ```http://127.0.0.1:5000```
     "deskripsi": "Bisa Hantu bisa penjahat"
 
 }
-
    ```
  - Response Expected:
-   ```
-   {
+```
+  {
     "data": {
         "deskripsi": "Bisa Hantu bisa penjahat",
         "id_kategori": 1,
@@ -369,13 +368,23 @@ Base url: ```http://127.0.0.1:5000```
     "message": "Data berhasil diupdate",
     "status": 200
    }
+```
 
-   ```
 #### e. Delete Category API based on ID
  - Method: `DELETE`
  - URL: `http://127.0.0.1:5000/api/penulis/4`
  - Response Expected:
+
 ```
+  {
+    "data": {
+        "deskripsi": "Dunia milik kita berdua",
+        "id_kategori": 5,
+        "nama_kategori": "romatic"
+    },
+    "message": "Data berhasil dihapus",
+    "status": 200
+   }
 ```
 
 
