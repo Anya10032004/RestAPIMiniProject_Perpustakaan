@@ -3,6 +3,7 @@
      - Pyhton 3.10+(make sure to click the "Add Python to PATH" button befor download)
      - MySQL Database Server(you can use XAMPP or Laragon, but i use Laragon)
      - Postman(for API testing)
+     - Vs code(Code editor) or you can also use Antigravity
 ## 🗄  Database Configuration
 1. Start Laragon. After installing Laragon, open the Laragon Control Panel and click Start All to start the required services.
 2. Open phpMyAdmin. In the Laragon Control Panel, click Menu, select MySQL, and then click phpMyAdmin.
