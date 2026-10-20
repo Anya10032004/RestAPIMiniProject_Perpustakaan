@@ -114,10 +114,6 @@ pip install -r requirements.txt
 
 
 
-```   
-pip install -r requirements.txt
-```
-This installs the Python libraries required by the project.
 ### 8. Run the app
 
 Run the ```app.py```:
