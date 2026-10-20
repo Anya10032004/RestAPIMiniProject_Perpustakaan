@@ -257,7 +257,8 @@ Base url: ```http://127.0.0.1:5000```
 - Method: `DELETE`
  - URL: `http://127.0.0.1:5000/api/penulis/4`
  - Response Expected:
-    ```{
+    ```
+    {
     "data": {
         "create_at": "2026-10-19T17:33:21",
         "email": "sefanyapn@gmail.com",
@@ -267,19 +268,23 @@ Base url: ```http://127.0.0.1:5000```
     "message": "Data berhasil dihapus",
     "status": 200
    }
-  ```
+    ```
+
 ### 3. Categori API
 #### a. Create Categoty API
  - Method: `POST`
  - URL: `http://127.0.0.1:5000/create/penulis `
  - Body(JSON):
-   ```{
+   ```
+   {
     "nama_kategori": "romatic",
     "deskripsi": "Dunia milik kita berdua"
    }
    ```
  - Response Expected:
-   ```{
+   
+   ```
+   {
     "data": {
         "deskripsi": "Dunia milik kita berdua",
         "id_kategori": 5,
@@ -293,7 +298,8 @@ Base url: ```http://127.0.0.1:5000```
 - Method: `GET`
  - URL: `http://127.0.0.1:5000/api/kategori `
  - Response Expected:
-   ```{
+   ```
+   {
     "data": [
         {
             "deskripsi": "Ya hantu hantu atau mistis",
@@ -325,7 +331,8 @@ Base url: ```http://127.0.0.1:5000```
  - Method: `GET`
  - URL: `http://127.0.0.1:5000/api/kategori/1`
  - Response Expected:
-   ```{
+   ```
+   {
     "data": {
         "deskripsi": "Ya hantu hantu atau mistis",
         "id_kategori": 1,
@@ -339,14 +346,16 @@ Base url: ```http://127.0.0.1:5000```
 - Method: `PUT`
  - URL: `http://127.0.0.1:5000/api/kategori/1`
  - Body(JSON):
-   ```{
+   ```
+   {
     "nama_kategori": "Horror YEYYYY",
     "deskripsi": "Bisa Hantu bisa penjahat"
 
    }
    ```
  - Response Expected:
-```{
+```
+{
     "data": {
         "deskripsi": "Bisa Hantu bisa penjahat",
         "id_kategori": 1,
@@ -362,7 +371,8 @@ Base url: ```http://127.0.0.1:5000```
  - URL: `http://127.0.0.1:5000/api/penulis/4`
  - Response Expected:
 
-```{
+```
+{
     "data": {
         "deskripsi": "Dunia milik kita berdua",
         "id_kategori": 5,
