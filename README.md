@@ -376,6 +376,17 @@ Base url: ```http://127.0.0.1:5000```
  - URL: `http://127.0.0.1:5000/api/penulis/4`
  - Response Expected:
    ```
+   {
+    "data": {
+        "deskripsi": "Dunia milik kita berdua",
+        "id_kategori": 5,
+        "nama_kategori": "romatic"
+    },
+    "message": "Data berhasil dihapus",
+    "status": 200
+  }
+  ```
+
    #### e. Delete Author API based on ID
 - Method: `DELETE`
 - URL: `http://127.0.0.1:5000/api/kategori/5`
@@ -392,7 +403,7 @@ Base url: ```http://127.0.0.1:5000```
     "status": 200
   }
    ```
-   ```
+
 ### 4. Book API
 #### f. Filter based on the Author ID
 #### g. Filter based on the Category ID
