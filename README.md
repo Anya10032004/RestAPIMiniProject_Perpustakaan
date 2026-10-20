@@ -500,46 +500,167 @@ Base url: ```http://127.0.0.1:5000```
     "status": "success"
     }
    ```
-#### d. Update Category API based on ID
+#### d. Update Book API based on ID
 - Method: `PUT`
- - URL: `http://127.0.0.1:5000/api/kategori/1`
+ - URL: `http://127.0.0.1:5000/api/buku/4`
  - Body(JSON):
    ```
    {
-    "nama_kategori": "Horror YEYYYY",
-    "deskripsi": "Bisa Hantu bisa penjahat"
-
+    "judul": "Why haha is for laughing?"
    }
    ```
  - Response Expected:
 ```
 {
     "data": {
-        "deskripsi": "Bisa Hantu bisa penjahat",
+        "harga": 1334000,
+        "id_buku": 4,
         "id_kategori": 1,
-        "nama_kategori": "Horror YEYYYY"
+        "id_penulis": 3,
+        "isbn": "1234sd4",
+        "judul": "Why haha is for laughing?",
+        "tahun_terbit": 2000
     },
-    "message": "Data berhasil diupdate",
-    "status": 200
-   }
+    "message": "Data successfully updated",
+    "status": "success"
+}
 ```
 
 #### e. Delete Category API based on ID
  - Method: `DELETE`
- - URL: `http://127.0.0.1:5000/api/penulis/4`
+ - URL: `http://127.0.0.1:5000/api/buku/3`
  - Response Expected:
 
 ```
 {
     "data": {
-        "deskripsi": "Dunia milik kita berdua",
-        "id_kategori": 5,
-        "nama_kategori": "romatic"
+        "harga": 100000,
+        "id_buku": 3,
+        "id_kategori": 2,
+        "id_penulis": 3,
+        "isbn": "12344",
+        "judul": "charles dickinson",
+        "tahun_terbit": 2010
     },
-    "message": "Data berhasil dihapus",
+    "message": "Data successfully deleted",
     "status": 200
-   }
+}
 ```
 #### f. Filter based on the Author ID
+ - Method: `GET`
+ - URL: `http://127.0.0.1:5000/api/buku?penulis_id=3`
+ - Response Expected:
+   ```
+   {
+    "data": [
+        {
+            "harga": 100000,
+            "id_buku": 3,
+            "id_kategori": 2,
+            "id_penulis": 3,
+            "isbn": "12344",
+            "judul": "charles dickinson",
+            "tahun_terbit": 2010
+        },
+        {
+            "harga": 1334000,
+            "id_buku": 4,
+            "id_kategori": 1,
+            "id_penulis": 3,
+            "isbn": "1234sd4",
+            "judul": "Harry Potter",
+            "tahun_terbit": 2000
+        },
+        {
+            "harga": 1334000,
+            "id_buku": 5,
+            "id_kategori": 1,
+            "id_penulis": 3,
+            "isbn": "123494949",
+            "judul": "Hobbit",
+            "tahun_terbit": 2000
+        },
+        {
+            "harga": 2334000,
+            "id_buku": 18,
+            "id_kategori": 4,
+            "id_penulis": 3,
+            "isbn": "12349494444912",
+            "judul": "Shimbaa",
+            "tahun_terbit": 2001
+        }
+    ],
+    "message": "Data successfully retrived",
+    "status": "success"
+   }
+   ```
+
 #### g. Filter based on the Category ID
-#### h. Filter based on the 
+ - Method: `GET`
+ - URL: `http://127.0.0.1:5000/api/buku?kategori_id=1`
+ - Response Expected:
+   ```
+   {
+    "data": [
+        {
+            "harga": 10000,
+            "id_buku": 1,
+            "id_kategori": 1,
+            "id_penulis": 2,
+            "isbn": "123",
+            "judul": "haha",
+            "tahun_terbit": 2020
+        },
+        {
+            "harga": 1334000,
+            "id_buku": 4,
+            "id_kategori": 1,
+            "id_penulis": 3,
+            "isbn": "1234sd4",
+            "judul": "Harry Potter",
+            "tahun_terbit": 2000
+        },
+        {
+            "harga": 1334000,
+            "id_buku": 5,
+            "id_kategori": 1,
+            "id_penulis": 3,
+            "isbn": "123494949",
+            "judul": "Hobbit",
+            "tahun_terbit": 2000
+        }
+    ],
+    "message": "Data successfully retrived",
+    "status": "success"
+   }
+   ```
+#### h. Filter based on the title or judul(q)
+ - Method: `GET`
+ - URL: `http://127.0.0.1:5000/api/buku?q=harry`
+ - Response Expected:
+   ```
+   {
+    "data": [
+        {
+            "harga": 1334000,
+            "id_buku": 4,
+            "id_kategori": 1,
+            "id_penulis": 3,
+            "isbn": "1234sd4",
+            "judul": "Harry Potter",
+            "tahun_terbit": 2000
+        },
+        {
+            "harga": 23340,
+            "id_buku": 19,
+            "id_kategori": 4,
+            "id_penulis": 3,
+            "isbn": "12349494444912111",
+            "judul": "Harry osborn wow",
+            "tahun_terbit": 2001
+        }
+    ],
+    "message": "Data successfully retrived",
+    "status": "success"
+   }
+   ```
