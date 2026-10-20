@@ -26,9 +26,9 @@
 ## 🚀 To run the application
 
 ### 1. Make a folder to make 
-Create a new folder on your Desktop where you want to store your project.
+Create a new folder where you want to store your project.
 
-For example, you can create a folder named ```Github project```.
+For example, you can create a folder named ```Projects```.
 
 ### 2. Clone the Repository
 Open your terminal (Command Prompt, PowerShell, or VS Code terminal) and run
@@ -36,8 +36,7 @@ Open your terminal (Command Prompt, PowerShell, or VS Code terminal) and run
 
 For example, if you created GitHub Projects on your Desktop, run:
 ```
-cd Desktop
-cd "GitHub Projects"
+cd <Folder_location>\Projects
 ```
 Next, run the following command to clone the repository from GitHub:
 
@@ -88,7 +87,15 @@ pip install -r requirements.txt
 ```
 
 ### 7. Configure the Database Connection
-  Open main.py and find the database connection configuration. Set it to the following URL:
+  Open main.py to the code editor(I will demonstrate how to use it with VS Code) from the terminal:
+
+  ```
+  cd "<Folder_location>\RestAPIMiniProject_Perpustakaan"
+  code .
+  ```
+
+  and find the database connection configuration. Set it to the following URL:
+
         ```
         mysql+pymysql://root:@localhost:3306/perpustakaan
         ```
@@ -107,10 +114,6 @@ pip install -r requirements.txt
 
 
 
-```   
-pip install -r requirements.txt
-```
-This installs the Python libraries required by the project.
 ### 8. Run the app
 
 Run the ```app.py```:
