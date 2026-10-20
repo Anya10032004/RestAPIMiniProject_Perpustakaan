@@ -392,6 +392,117 @@ Base url: ```http://127.0.0.1:5000```
   
 
 ### 4. Book API
+#### a. Create Categoty API
+ - Method: `POST`
+ - URL: `http://127.0.0.1:5000/create/penulis `
+ - Body(JSON):
+   ```
+   {
+    "nama_kategori": "romatic",
+    "deskripsi": "Dunia milik kita berdua"
+   }
+   ```
+ - Response Expected:
+   
+   ```
+   {
+    "data": {
+        "deskripsi": "Dunia milik kita berdua",
+        "id_kategori": 5,
+        "nama_kategori": "romatic"
+    },
+    "message": "Data successfully added",
+    "status": 200
+   }
+   ```
+#### b. Read Categoty API
+- Method: `GET`
+ - URL: `http://127.0.0.1:5000/api/kategori `
+ - Response Expected:
+   ```
+   {
+    "data": [
+        {
+            "deskripsi": "Ya hantu hantu atau mistis",
+            "id_kategori": 1,
+            "nama_kategori": "Horror Yassss"
+        },
+        {
+            "deskripsi": "Intinya saat dua orang saling membantu dalam pertumbuhan atau jadi TOLOLL",
+            "id_kategori": 2,
+            "nama_kategori": "romantis"
+        },
+        {
+            "deskripsi": "fiksi tetapi berisfat ilmiah",
+            "id_kategori": 4,
+            "nama_kategori": "sci-fi"
+        },
+        {
+            "deskripsi": "Dunia milik kita berdua",
+            "id_kategori": 5,
+            "nama_kategori": "romatic"
+        }
+    ],
+    "message": "Data berhasil diambil",
+    "status": "success"
+    }
+    
+   ```
+#### c. Read Category API based on ID
+ - Method: `GET`
+ - URL: `http://127.0.0.1:5000/api/kategori/1`
+ - Response Expected:
+   ```
+   {
+    "data": {
+        "deskripsi": "Ya hantu hantu atau mistis",
+        "id_kategori": 1,
+        "nama_kategori": "Horror Yassss"
+    },
+    "message": "Data berhasil diambil",
+    "status": "success"
+    }
+   ```
+#### d. Update Category API based on ID
+- Method: `PUT`
+ - URL: `http://127.0.0.1:5000/api/kategori/1`
+ - Body(JSON):
+   ```
+   {
+    "nama_kategori": "Horror YEYYYY",
+    "deskripsi": "Bisa Hantu bisa penjahat"
+
+   }
+   ```
+ - Response Expected:
+```
+{
+    "data": {
+        "deskripsi": "Bisa Hantu bisa penjahat",
+        "id_kategori": 1,
+        "nama_kategori": "Horror YEYYYY"
+    },
+    "message": "Data berhasil diupdate",
+    "status": 200
+   }
+```
+
+#### e. Delete Category API based on ID
+ - Method: `DELETE`
+ - URL: `http://127.0.0.1:5000/api/penulis/4`
+ - Response Expected:
+
+```
+{
+    "data": {
+        "deskripsi": "Dunia milik kita berdua",
+        "id_kategori": 5,
+        "nama_kategori": "romatic"
+    },
+    "message": "Data berhasil dihapus",
+    "status": 200
+   }
+```
 #### f. Filter based on the Author ID
 #### g. Filter based on the Category ID
 #### h. Filter based on the 
