@@ -387,22 +387,6 @@ Base url: ```http://127.0.0.1:5000```
   }
   ```
 
-   #### e. Delete Author API based on ID
-- Method: `DELETE`
-- URL: `http://127.0.0.1:5000/api/kategori/5`
-- Response Expected:
-   ```
-   {
-    "data": {
-        "create_at": "2026-10-19T17:33:21",
-        "email": "sefanyapn@gmail.com",
-        "id_penulis": 4,
-        "nama_penulis": "Sefanya PN"
-    },
-    "message": "Data berhasil dihapus",
-    "status": 200
-  }
-   ```
 
 ### 4. Book API
 #### f. Filter based on the Author ID
