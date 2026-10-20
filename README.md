@@ -272,8 +272,7 @@ Base url: ```http://127.0.0.1:5000```
         "nama_penulis": "Sefanya PN"
     },
     "message": "Data berhasil dihapus",
-    "status": 200
-  }
+    "status": 200}
   ```
 ### 3. Categori API
 #### a. Create Categoty API
